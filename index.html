@@ -79,7 +79,12 @@
     function extractBeforeQuestionMark() {
       const input = document.getElementById('inputText').value;
       const result = input.split('?')[0]; // Split the string by '?' and return the first part
-      document.getElementById('outputText').textContent = result ? `Here is your unblocked tiktok link: ${result}` : "No input provided!";
+      const displayArea = document.getElementById('outputText');
+      if (result) {
+        displayArea.innerHTML = `<a href="${result}" target="_blank">Click here to visit: ${result}</a>`;
+      } else {
+        displayArea.textContent = "Please enter a valid input!";
+      }
     }
   </script>
 
